@@ -1,0 +1,22 @@
+using UnityEngine;
+using System.Collections;
+
+public class Coloured : MonoBehaviour {
+
+	void OnMouseDown(){
+		var color = Random.Range(1,5);
+		switch (color){
+		case 1 : renderer.material.color = Color.blue;
+		break;
+		case 2 : renderer.material.color = Color.red;
+		break;
+		case 3 : renderer.material.color = Color.yellow;
+		break;
+		case 4 : renderer.material.color = Color.green;
+		break;
+		default: renderer.material.color = Color.green;	
+		break;
+		}
+			
+	}
+}
