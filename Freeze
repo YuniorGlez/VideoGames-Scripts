@@ -1,0 +1,11 @@
+using UnityEngine;
+using System.Collections;
+
+public class Freeze : MonoBehaviour {
+
+	void OnMouseDown(){
+		rigidbody.useGravity = false;
+		rigidbody.velocity = Vector3.zero; // Without this the object Conitnue falling
+	}
+
+}
