@@ -1,0 +1,22 @@
+using UnityEngine;
+using System.Collections;
+
+public class Enemies : MonoBehaviour {
+public GameObject enemy;  // Pick Up the pre fab in this variable
+public int maxEnemies = 10;
+	
+	// Use this for initialization
+	void Start () {
+		for (int i=0;i<maxEnemies;i++){
+			int x = Random.Range(-5,5);
+			int y = Random.Range(15,35);
+			int z = Random.Range(-5,5);
+			Instantiate(enemy, new Vector3(x,y,z), Quaternion.identity);
+		}
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+}
