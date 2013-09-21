@@ -1,0 +1,25 @@
+using UnityEngine;
+using System.Collections;
+
+public class Shoot : MonoBehaviour {
+	
+	public Rigidbody gun;	Transform endWeapon;
+	public int velocityGun;		
+	
+	// Use this for initialization
+	void Start () {
+		endWeapon = GameObject.Find("EndWeapon").transform;
+		velocityGun=20;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (Input.GetKeyUp("space")) 
+			shoot();
+	}
+	private void shoot(){
+		Rigidbody gunVar= (Rigidbody) Instantiate(gun, endWeapon.position, endWeapon.rotation);
+		gunVar.rigidbody.AddRelativeForce (new Vector3 (0,velocityGun,0), ForceMode.VelocityChange);
+		gunVar.rigidbody.useGravity = false;
+	}
+}
