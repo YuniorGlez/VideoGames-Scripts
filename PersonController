@@ -1,0 +1,41 @@
+using UnityEngine;
+using System.Collections;
+
+/**
+ * This Scripts is a PersonController for 2D Games.
+ * 		You can activate the var rotate to do a game 
+ * 		where the character move forward
+ * 		Or not avtivate rotate to make a game where
+ * 		the character move in the axis 
+ * 
+*/
+public class PersonController: MonoBehaviour {
+public bool rotate = false;
+public float sensibility =25;	public float speed = 5;
+	
+	// Use this for initialization
+	void Start () {
+	
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (!rotate) {
+			withoutRotation();
+		}
+		if (rotate) {
+			withRotation();
+		}
+		
+	}
+	
+	void withoutRotation(){
+		transform.Translate(Input.GetAxis("Horizontal")*speed*Time.deltaTime,0,Input.GetAxis("Vertical")*speed*Time.deltaTime);	
+	}
+	
+	void withRotation(){		
+		transform.Translate(0,0,Input.GetAxis("Vertical")*speed*Time.deltaTime);
+		transform.Rotate(0,Input.GetAxis("Horizontal")*50*sensibility*Time.deltaTime,0);
+	}
+	
+}
